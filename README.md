@@ -36,3 +36,9 @@ This project addresses the critical agricultural issue of 20-40% global producti
 - **Git/GitHub**: Version control and collaboration
 - **AI & Vision Techniques**: Anomaly detection algorithms
 
+## 👥 Team Members
+
+- **Jimena Díaz Franco** - Remover Agent Implementation, Repository Management
+- **Ilan Gómez Guerrero** - Simulation Environment, Analyzer Agent
+- **Maria Guadalupe Soto Acosta** - Harvester Agent, Integration & Testing
+- **Francisco Raziel Andalón Aguayo** - Documentation, Communication
