@@ -3,13 +3,13 @@ using UnityEngine.AI;
 using System.Collections.Generic;
 using System.Collections;
 
-public class RemoverScript : MonoBehaviour
+public class HarvesterScript : MonoBehaviour
 {
     [Header("Robot Settings")]
-    private string targetTag = "Infected";
+    private string targetTag = "Harvest";
     public float removeTime = 5f;
 
-    private Queue<Vector3> removeQueue = new Queue<Vector3>();
+    private Queue<Vector3> harvestQueue = new Queue<Vector3>();
     private NavMeshAgent agent;
 
     private bool isWorking = false;
@@ -29,9 +29,9 @@ public class RemoverScript : MonoBehaviour
     }
 
     
-    public void AddRemoveRequest(Vector3 position)
+    public void AddHarvestRequest(Vector3 position)
     {
-        removeQueue.Enqueue(position);
+        harvestQueue.Enqueue(position);
 
         if (returningToOrigin)
         {
@@ -49,14 +49,14 @@ public class RemoverScript : MonoBehaviour
 
     void StartNextTask()
     {
-        if (removeQueue.Count == 0)
+        if (harvestQueue.Count == 0)
         {
             // Si no hay tareas → volver al origen
             StartCoroutine(ReturnToOrigin());
             return;
         }
 
-        Vector3 nextPos = removeQueue.Dequeue();
+        Vector3 nextPos = harvestQueue.Dequeue();
         isWorking = true;
 
         agent.SetDestination(nextPos);
@@ -71,12 +71,13 @@ public class RemoverScript : MonoBehaviour
         }
 
         drone.removeCoordinate(targetPos);
-        Debug.Log("Tomate Para Remover: " + targetPos);
+        Debug.Log("Tomate Para Cosechar: " + targetPos);
+
         currentTarget = FindClosestTarget(targetPos);
 
         if (currentTarget != null)
         {
-            yield return StartCoroutine(RemoveObject(targetPos));
+            yield return StartCoroutine(HarvestObject(targetPos));
         }
 
         isWorking = false;
@@ -84,14 +85,14 @@ public class RemoverScript : MonoBehaviour
         StartNextTask();
     }
 
-    IEnumerator RemoveObject(Vector3 targetPos)
+    IEnumerator HarvestObject(Vector3 targetPos)
     {
-        Debug.Log("Trabajando para remover: " + currentTarget.name);
+        Debug.Log("Trabajando para Cosechar: " + currentTarget.name);
 
         yield return new WaitForSeconds(removeTime);
 
         Destroy(currentTarget);
-        Debug.Log("Tomate Removido.");
+        Debug.Log("Tomate Cosechado");
         // drone.removeCoordinate(targetPos);
     }
 

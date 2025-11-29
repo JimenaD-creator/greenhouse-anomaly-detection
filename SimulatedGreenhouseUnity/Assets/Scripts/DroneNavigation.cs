@@ -7,20 +7,22 @@ public class DroneNavigation : MonoBehaviour
 {
     public List<Vector3> waypoints;
     public float errorDist = 0.1f; // Por si
-    public float timeStop = 1.0f; // CUanto tiempo se detiene
+    public float timeStop = 0.5f; // CUanto tiempo se detiene
 
     private NavMeshAgent agent;
     private int currIndex = 0;
     private bool isChecking = true;
     private bool isPaused = false;
-    private RemoverScript remover;
+    public RemoverScript remover;
+    public HarvesterScript harvester;
     public GreenhouseInitializer greenhouse;
 
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        remover = FindObjectOfType<RemoverScript>();
+        // remover = FindObjectOfType<RemoverScript>();
+        // harvester = FindObjectOfType<HarvesterScript>();
 
         waypoints = greenhouse.GetCoordinates();
 
@@ -73,6 +75,7 @@ public class DroneNavigation : MonoBehaviour
 
     private string tagBien = "Bien"; 
     private string tagInfected = "Infected"; 
+    private string tagMaduro = "Harvest";
 
     
     private void OnTriggerEnter(Collider other)
@@ -81,6 +84,7 @@ public class DroneNavigation : MonoBehaviour
         if (other.CompareTag(tagBien))
         {
             Debug.Log("Tomate Bien");
+            return;
         }
 
         if (other.CompareTag(tagInfected))
@@ -88,14 +92,34 @@ public class DroneNavigation : MonoBehaviour
             Debug.Log("Tomate Infectado");
             Vector3 pos = other.transform.position;
             remover.AddRemoveRequest(pos);
+            return;
+        }
+
+        if (other.CompareTag(tagMaduro))
+        {
+            Debug.Log("Tomate Maduro");
+            Vector3 pos = other.transform.position;
+            harvester.AddHarvestRequest(pos);
+            return;
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    public void removeCoordinate(Vector3 pos)
     {
-        if (other.CompareTag(tagBien))
+        float tolerance = 0.1f;
+
+        // Buscar la primera posición que esté dentro del margen
+        for (int i = 0; i < waypoints.Count; i++)
         {
-            // Debug.Log("Adios Tomate Bien");
+            if (Vector3.Distance(waypoints[i], pos) <= tolerance)
+            {
+                Debug.Log("Coordenada removida (aproximada): " + waypoints[i]);
+                waypoints.RemoveAt(i);
+                return; // salimos después de eliminar
+            }
         }
+
+        Debug.Log("No se encontró ninguna coordenada dentro del rango");
     }
+
 }
