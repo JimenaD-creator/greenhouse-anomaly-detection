@@ -51,7 +51,7 @@ public class GreenhouseInitializer : MonoBehaviour
         {
             Vector3 pos = coordinates[i];
             GameObject prefabToSpawn = infectedIndices.Contains(i) ? infectedPlantPrefab : healthyPlantPrefab;
-            Instantiate(prefabToSpawn, pos, Quaternion.identity, transform);
+            Instantiate(prefabToSpawn, pos, Quaternion.Euler(0, 90, 0), transform);
         }
     }
     public List<Vector3> GetCoordinates()

@@ -1163,7 +1163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c72bd0cfbf520f4e840ebae5c19ddda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  removeTime: 2
+  removeTime: 0.5
   drone: {fileID: 1701902918}
 --- !u!195 &813672589
 NavMeshAgent:
@@ -1175,9 +1175,9 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 1479372276
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 4
   m_Acceleration: 8
-  avoidancePriority: 50
+  avoidancePriority: 10
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
@@ -2019,9 +2019,49 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7329675195426684281, guid: 31256910efbf98049a991fe5cf6f74d5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -6321556461357325842, guid: 31256910efbf98049a991fe5cf6f74d5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -4370111678170979691, guid: 31256910efbf98049a991fe5cf6f74d5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -3652510682802395239, guid: 31256910efbf98049a991fe5cf6f74d5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -2592747463885997018, guid: 31256910efbf98049a991fe5cf6f74d5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -1625439151586296369, guid: 31256910efbf98049a991fe5cf6f74d5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 31256910efbf98049a991fe5cf6f74d5, type: 3}
       propertyPath: m_Name
       value: Drone00
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 31256910efbf98049a991fe5cf6f74d5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8611376905172099248, guid: 31256910efbf98049a991fe5cf6f74d5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8877173753703174772, guid: 31256910efbf98049a991fe5cf6f74d5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9221613066662114192, guid: 31256910efbf98049a991fe5cf6f74d5, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2247,7 +2287,7 @@ GameObject:
   - component: {fileID: 1701902919}
   - component: {fileID: 1701902918}
   - component: {fileID: 1701902920}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Analyzer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2306,7 +2346,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waypoints: []
   errorDist: 0.1
-  timeStop: 0.5
+  timeStop: 0.25
   remover: {fileID: 1705145298}
   harvester: {fileID: 813672588}
   greenhouse: {fileID: 268864336}
@@ -2320,7 +2360,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: -1372625422
   m_Radius: 0.5
-  m_Speed: 5
+  m_Speed: 10
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -2405,7 +2445,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 1479372276
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -2429,7 +2469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 133ab342eac1d734d83117021a59e81d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  removeTime: 5
+  removeTime: 1
   drone: {fileID: 1701902918}
 --- !u!54 &1705145299
 Rigidbody:
@@ -2469,7 +2509,7 @@ GameObject:
   - component: {fileID: 1838209354}
   - component: {fileID: 1838209357}
   - component: {fileID: 1838209355}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Drone Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}

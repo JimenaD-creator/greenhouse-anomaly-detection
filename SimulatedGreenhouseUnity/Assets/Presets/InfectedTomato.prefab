@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7545365573652435071}
   - component: {fileID: 6315985043156564579}
+  - component: {fileID: 552019538562550452}
   m_Layer: 6
   m_Name: InfectedTomato
   m_TagString: Infected
@@ -54,6 +55,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.75, y: 0.5, z: 0.75}
   m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!114 &552019538562550452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7531211601747164644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4399ed355de037e4fa2f2d4fde347ff6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minRange: 0.2
+  maxRange: 1.2
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  prefabToSpawn: {fileID: 7531211601747164644}
+  propagationDelay: 1
 --- !u!1001 &7469838411359989786
 PrefabInstance:
   m_ObjectHideFlags: 0

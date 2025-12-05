@@ -4,8 +4,8 @@ public class TomatoScript : MonoBehaviour
 {
     [Header("Gorwth Settings")]
     public GameObject nextPhase;     // Preset Tomate Maduro
-    private float minDelay = 2f;          // Tiempo mínimo de espera en Minutos
-    private float maxDelay = 4f;          // Tiempo máximo de espera en Minutos
+    private float minDelay = 1f;          // Tiempo mínimo de espera en Minutos
+    private float maxDelay = 2f;          // Tiempo máximo de espera en Minutos
 
     private float waitTime;
     private Transform originalParent;

@@ -107,19 +107,17 @@ public class DroneNavigation : MonoBehaviour
     public void removeCoordinate(Vector3 pos)
     {
         float tolerance = 0.1f;
-
-        // Buscar la primera posición que esté dentro del margen
         for (int i = 0; i < waypoints.Count; i++)
         {
             if (Vector3.Distance(waypoints[i], pos) <= tolerance)
             {
-                Debug.Log("Coordenada removida (aproximada): " + waypoints[i]);
+                // Debug.Log("Coordenada removida (aproximada): " + waypoints[i]);
                 waypoints.RemoveAt(i);
                 return; // salimos después de eliminar
             }
         }
 
-        Debug.Log("No se encontró ninguna coordenada dentro del rango");
+        // Debug.Log("No se encontró ninguna coordenada dentro del rango");
     }
 
 }
