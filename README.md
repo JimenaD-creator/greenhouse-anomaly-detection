@@ -34,7 +34,6 @@ This project addresses the critical agricultural issue of 20-40% global producti
 - **Unity 3D**: Simulation environment and agent modeling
 - **C#**: Agent behavior and system logic
 - **Git/GitHub**: Version control and collaboration
-- **AI & Vision Techniques**: Anomaly detection algorithms
 
 ## 👥 Team Members
 
